@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+</head>
+<body ng-app="App" >
+<div ng-controller="Ctrl">
+  <ul>
+    <li ng-repeat="u in users">{{u.fname}} {{u.lastname}}</li>
+  </ul>
+</div>
+<div ng-controller="Ctrl2">
+  <ul>
+    <li ng-repeat="u in users">{{u.fname}} {{u.lastname}}</li>
+  </ul>
+</div>
+<div ng-controller="Ctrl3">
+  <ul>
+    <li ng-repeat="u in users">{{u.fname}} {{u.lastname}}</li>
+  </ul>
+</div>
+</body>
+<script>
+  angular.module('App', [])
+    .controller('Ctrl', ($scope, $http) => {
+      $http.get('http://localhost:5000/').then((res) => {
+        $scope.users = res.data;
+      })
+    })
+    .controller('Ctrl2', ($scope, $http) => {
+      $http.get('http://localhost:5000/').then((res) => {
+        $scope.users = res.data;
+      })
+    })
+    .controller('Ctrl3', ($scope, $http) => {
+      $http.get('http://localhost:5000/').then((res) => {
+        $scope.users = res.data;
+      })
+    })
+</script>
+</html>
